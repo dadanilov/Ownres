@@ -7,18 +7,6 @@ public class Data {
         setData(day, m, year);
     }
 
-    public int getDay() {
-        return day;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public Month getMonth() {
-        return month;
-    }
-
     public void setDay(int day) {
         this.day = day;
     }
@@ -44,6 +32,18 @@ public class Data {
             this.month = Month.January;
             this.year = 2000;
         }
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public boolean isDate(int day, int m, int year)

@@ -11,16 +11,8 @@ public class Realty extends Data {
         setRealty(i, cadastral_number, square);
     }
 
-    public double getSquare() {
-        return square;
-    }
-
-    public String getCadastral_number() {
-        return cadastral_number;
-    }
-
-    public View getView() {
-        return view;
+    public void setView(View view) {
+        this.view = view;
     }
 
     public void setCadastral_number(String cadastral_number) {
@@ -31,15 +23,39 @@ public class Realty extends Data {
         this.square = square;
     }
 
-    public void setView(View view) {
-        this.view = view;
-    }
-
     public void setData(Data data) {
         this.data = data;
     }
 
+    public void setRealty(int i, String cadastral_number, double square) {
+        if (i < 3) {
+            this.view = View.values()[i];
+        } else {
+            this.view = View.home;
+        }
+        if (isCN(cadastral_number)) {
+            this.cadastral_number = cadastral_number;
+        } else {
+            this.cadastral_number = "00:00:000000:000";
+        }
+        if ((square >= 1.0) && (square <= 1000.0)) {
+            this.square = square;
+        } else {
+            this.square = 1.0;
+        }
+    }
 
+    public View getView() {
+        return view;
+    }
+
+    public String getCadastral_number() {
+        return cadastral_number;
+    }
+
+    public double getSquare() {
+        return square;
+    }
 
     public boolean isCN(String CN)
     {
@@ -60,24 +76,4 @@ public class Realty extends Data {
             return false;
         }
     }
-
-    public void setRealty(int i, String cadastral_number, double square) {
-        if (i < 3) {
-            this.view = View.values()[i];
-        } else {
-            this.view = View.home;
-        }
-        if (isCN(cadastral_number)) {
-            this.cadastral_number = cadastral_number;
-        } else {
-            this.cadastral_number = "00:00:000000:000";
-        }
-        if ((square >= 1.0) && (square <= 1000.0)) {
-            this.square = square;
-        } else {
-            this.square = 1.0;
-        }
-
-    }
-
 }
